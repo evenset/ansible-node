@@ -1,0 +1,10 @@
+
+
+# Nginx settings.
+nginx_server_name: 192.168.20.20
+nginx_strong_dh_group: no
+nginx_static_dir: var
+
+
+# Node related
+node_server_path: http://localhost:5000

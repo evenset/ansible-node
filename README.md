@@ -35,6 +35,15 @@ vagrant halt
 vagrant destroy
 ```
 
+# Common issues
+## Vagrant is not reachable from host on Ubuntu 17.04
+As per this [stackoverflow](https://stackoverflow.com/questions/43455777/cant-get-to-any-vagrant-sites-on-ubuntu-17-04)
+link you should disable `127.0.1.1 [computer-name]` from `/etc/hosts/` and also install
+```bash
+sudo apt-get install net-tools
+```
+
+
 
 
 
