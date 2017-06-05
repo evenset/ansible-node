@@ -32,7 +32,7 @@ vagrant halt
 ```
 **Completely delete the box**
 ```bash
-vagrant halt
+vagrant destroy
 ```
 
 
