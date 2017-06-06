@@ -1,0 +1,26 @@
+---
+
+- name: Install packages based on package.json (with Yarn!)
+  command: yarn
+  args:
+    chdir: "{{ application_src_dir }}"
+  when: use_yarn is defined and use_yarn
+
+
+- name: Install packages based on package.json.
+  npm:
+    path: "{{ application_src_dir }}"
+  when: not use_yarn
+
+# We need to use async as pm2 is not returning
+- name: Start the server with package.json build command
+  command: "{{ build_command }}"
+  args:
+    chdir: "{{ application_src_dir }}"
+  async: 1
+  poll: 0
+
+
+
+
+

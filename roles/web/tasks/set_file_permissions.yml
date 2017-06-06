@@ -1,0 +1,9 @@
+---
+
+- name: Ensure that the application file permissions are set properly
+  file: path={{ application_root_dir }}
+        recurse=yes
+        owner={{ application_user }}
+        group={{ application_group }}
+        state=directory
+  # notify: restart application

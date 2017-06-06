@@ -1,10 +1,20 @@
 ---
+# Git config
+setup_git_repo: yes
+git_repo: "git@git.evenset.com:sca/webserver.git"
+git_branch: develop
 
-git_repo: git@github.com:evenset/ansible-node.git
+# Application config
+application_name: webserver
+application_root_dir: '/webapp'
+application_src_dir: '{{ application_root_dir }}/{{ application_name }}'
+use_yarn: True
+build_command: "yarn prodstart"
 
-application_name: demo
 
 
+# Self-signed Key and certificate for Nginx
+# Replace these if you have purchased your own certificates
 ssl_crt: |
   -----BEGIN CERTIFICATE-----
   MIIDyzCCArOgAwIBAgIJALc5j3PCTfDrMA0GCSqGSIb3DQEBCwUAMHwxCzAJBgNV

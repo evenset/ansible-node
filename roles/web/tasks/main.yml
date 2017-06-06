@@ -1,0 +1,23 @@
+---
+- include: install_node.yml
+  tags: packages
+  become_user: root
+
+- include: install_global_npm_packages.yml
+  tags: packages
+  become_user: root
+
+- include: create_users_and_groups.yml
+  become_user: root
+
+- include: set_file_permissions.yml
+  tags: deploy
+  become_user: root
+
+- include: setup_git_repo.yml
+  tags: deploy
+
+- include: setup_node_app.yml
+  tags: deploy
+
+

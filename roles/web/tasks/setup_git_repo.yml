@@ -1,0 +1,18 @@
+- name: Temporarily set filesystem owner for program code to "{{ remote_user }}"
+  file: path={{ application_src_dir }} owner={{remote_user}} state=directory recurse=yes
+
+- name: Setup the Git repo (branch "{{ git_branch }}")
+  git:
+    accept_hostkey=yes
+    depth=1
+    dest="{{ application_src_dir }}"
+    repo="{{ git_repo }}"
+    update=yes
+    version="{{ git_branch }}"
+  when: setup_git_repo is defined and setup_git_repo
+  tags: git
+  become: no
+
+- name: Set filesystem owner for program code to "{{ application_user }}"
+  file: path={{ application_root_dir }} owner={{ application_user }} state=directory recurse=yes
+
