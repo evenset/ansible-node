@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/xenial64"
-
+  config.ssh.forward_agent = true
 
   config.vm.network "private_network", ip: "192.168.20.20"
 
@@ -19,10 +19,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # To enable it, uncomment the line below and fix the correct paths [refer to ansbile]
   #config.vm.synced_folder "../../../my-node-app", "/webapps/mynodeapp/my-node-app"
 
-  # Ansible provisioner.
+  # Ansible provisioner
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "vagrant.yml"
     ansible.host_key_checking = false
+    ansible.extra_vars = { ansible_ssh_user: 'ubuntu' }
     ansible.verbose = "vv"
   end
 end

@@ -14,3 +14,7 @@
   tags: deploy
   become_user: root
 
+- include: setup_git_repo.yml
+  tags: deploy
+
+

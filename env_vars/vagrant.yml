@@ -1,4 +1,6 @@
+---
 
+remote_user: ubuntu
 
 # Nginx settings.
 nginx_server_name: 192.168.20.20
