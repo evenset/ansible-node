@@ -9,6 +9,7 @@ application_name: webserver
 application_root_dir: '/webapp'
 application_src_dir: '{{ application_root_dir }}/{{ application_name }}'
 use_yarn: True
+build_command: "yarn prodstart"
 
 
 

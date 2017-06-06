@@ -4,7 +4,7 @@
   hosts: all
   become: yes
   become_user: root
-  remote_user: vagrant
+  remote_user: ubuntu
   vars:
     setup_git_repo: yes  # set to no for local development and map your local git repo in the Vagrantfile instead
     update_apt_cache: yes

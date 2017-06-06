@@ -1,0 +1,7 @@
+---
+
+- name: restart pm2
+  service:
+    name: "all"
+    state: restarted
+
