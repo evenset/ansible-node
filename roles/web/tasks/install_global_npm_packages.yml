@@ -1,0 +1,22 @@
+---
+
+- name: download Yarn package signing key
+  apt_key:
+    url: "https://dl.yarnpkg.com/debian/pubkey.gpg"
+    state: present
+  when: use_yarn is defined and use_yarn
+
+- name: add the Yarn repository
+  apt_repository:
+    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
+    state: present
+  when: use_yarn is defined and use_yarn
+
+- name: install Yarn
+  package: name=yarn state=present
+  when: use_yarn is defined and use_yarn
+
+- name: Install "pm2" node.js package globally.
+  npm:
+    name: pm2
+    global: yes

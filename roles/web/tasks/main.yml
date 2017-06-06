@@ -3,6 +3,10 @@
   tags: packages
   become_user: root
 
+- include: install_global_npm_packages.yml
+  tags: packages
+  become_user: root
+
 - include: create_users_and_groups.yml
   become_user: root
 
