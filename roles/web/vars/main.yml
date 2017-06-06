@@ -1,0 +1,6 @@
+---
+
+# Application settings.
+application_user: "{{ application_name }}"
+application_group: webapp
+

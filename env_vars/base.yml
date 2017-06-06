@@ -1,8 +1,8 @@
 ---
 
 git_repo: git@github.com:evenset/ansible-node.git
-
 application_name: demo
+application_root_dir: '/webapp'
 
 
 ssl_crt: |
