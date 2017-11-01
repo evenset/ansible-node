@@ -1,7 +1,7 @@
 ---
 # Git config
 setup_git_repo: yes
-git_repo: "git@git.evenset.com:evenset/zapquery.git"
+git_repo: "your git url"
 git_branch: develop
 
 # Application config
@@ -10,7 +10,7 @@ application_root_dir: '/webapp'
 application_src_dir: '{{ application_root_dir }}/{{ application_name }}'
 use_yarn: False
 build_command: "npm run build"
-run_command: "pm2 start npm --name 'next' -- start"
+run_command: "npm run prodstart"
 
 
 
