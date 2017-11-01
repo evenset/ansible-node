@@ -7,7 +7,7 @@ application_group: webapp
 # NodeJS settings.
 # When upgrading NodeJS, add the version to "previous_versions" so that it will
 # be deleted from the box.
-nodejs_current_version: 6.10.0
+nodejs_current_version: 8.6.0
 nodejs_previous_versions: []
 nodejs_archive_file: "node-v{{ nodejs_current_version }}-linux-x64.tar.gz"
 

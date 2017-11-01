@@ -10,15 +10,29 @@
 - name: Install packages based on package.json.
   npm:
     path: "{{ application_src_dir }}"
-  when: not use_yarn
+  when: use_yarn is defined and not use_yarn
+
+
+- name: Build the server with package.json build command
+  command: "{{ build_command }}"
+  args:
+    chdir: "{{ application_src_dir }}"
 
 # We need to use async as pm2 is not returning
-- name: Start the server with package.json build command
-  command: "{{ build_command }}"
+- name: Start the server with package.json start command
+  command: "{{ run_command }}"
   args:
     chdir: "{{ application_src_dir }}"
   async: 1
   poll: 0
+
+# Add pm2 to Systemd or any Init system found on the OS
+- name: Start the server with package.json start command
+  command: "pm2 startup"
+  become: yes
+  args:
+    chdir: "{{ application_src_dir }}"
+
 
 
 

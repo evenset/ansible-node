@@ -9,4 +9,4 @@ nginx_static_dir: var
 
 
 # Node related
-node_server_path: http://localhost:5000
+node_server_path: http://localhost:3000
